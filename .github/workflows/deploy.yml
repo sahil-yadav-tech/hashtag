@@ -22,12 +22,12 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t sahilyadavteche/chat-app:main .
-          docker tag sahilyadavteche/chat-app:main sahilyadavteche/chat-app:latest
+          docker tag sahilyadavteche/chat-app:main sahilyadavteche/chat-app:main
 
       - name: Push Docker Images
         run: |
           docker push sahilyadavteche/chat-app:main
-          docker push sahilyadavteche/chat-app:latest
+          docker push sahilyadavteche/chat-app:main
 
       - name: Deploy To EC2
         uses: appleboy/ssh-action@v1.2.0
@@ -36,7 +36,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull sahilyadavteche/chat-app:latest
+            docker pull sahilyadavteche/chat-app:main
 
             docker stop chat-app || true
             docker rm chat-app || true
@@ -45,6 +45,6 @@ jobs:
               --restart unless-stopped \
               --name chat-app \
               -p 4000:4000 \
-              sahilyadavteche/chat-app:latest
+              sahilyadavteche/chat-app:main
 
             docker ps
