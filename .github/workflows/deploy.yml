@@ -34,17 +34,22 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            echo "Pull latest image..."
             docker pull sahilyadavteche/chat-app:latest
 
+            echo "Stop old container..."
             docker stop chat-app || true
             docker rm chat-app || true
 
-            docker image prune -f
+            docker stop chat-app-container || true
+            docker rm chat-app-container || true
 
+            echo "Run new container..."
             docker run -d \
               --restart unless-stopped \
               --name chat-app \
               -p 4000:4000 \
               sahilyadavteche/chat-app:latest
 
+            echo "Container status..."
             docker ps -a
