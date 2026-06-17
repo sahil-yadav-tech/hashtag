@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/s", (req, res) => {
-    res.send("Hello World! 2 rs");
+    res.send("Hello World! 2 rs ❤️");
 });
 
 app.get("/health", (req, res) => {
