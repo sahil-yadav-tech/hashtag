@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-const const products = [
+const products = [
   {
     id: 1,
     name: "iPhone 15",
