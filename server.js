@@ -153,7 +153,7 @@ const products = [
   }
 ];
 app.get("/s", (req, res) => {
-   retun res.status(200).json({
+   return res.status(200).json({
     message:"Products data",
     data:products
    })
