@@ -154,7 +154,7 @@ const products = [
 ];
 app.get("/s", (req, res) => {
    return res.status(200).json({
-    message:"Products data",
+    message:"Products datas",
     data:products
    })
 });
