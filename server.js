@@ -7,8 +7,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT;
-console.log(port,process.env.PORT );
+const port = process.env.PORT || 9987;
+console.log(port,process.env.PORT || );
 
 
 app.get("/", (req, res) => {
@@ -168,3 +168,6 @@ app.get("/health", (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+
+
+
