@@ -45,7 +45,7 @@ jobs:
             docker run -d \
               --restart unless-stopped \
               --name chat-app \
-              --env-file /home/ubuntu/chat-app/.env \
+              --env-file /home/ubuntu/amazone/.env \
               -p 9987:9987 \
               sahilyadavteche/amazone:latest
 
