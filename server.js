@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 9987;
-console.log(port,process.env.PORT || );
+console.log(port,process.env.PORT );
 
 
 app.get("/", (req, res) => {
