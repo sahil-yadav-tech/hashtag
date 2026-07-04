@@ -1,18 +1,18 @@
-console.log("JAI SHREE RAM JI / JAI BAJARANG BALI JI❤️😍👏😊")
-
+console.log("JAI SHREE RAM JI / JAI BAJARANG BALI JI❤️😍👏😊");
 
 const express = require("express");
 const dotenv = require("dotenv");
-
+const cors = require("cors");
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 9987;
-console.log(port,process.env.PORT );
+console.log(port, process.env.PORT);
 
+app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+  res.json({message:"Hello World!"});
 });
 
 const products = [
@@ -23,7 +23,7 @@ const products = [
     price: 79999,
     stock: 25,
     brand: "Apple",
-    rating: 4.8
+    rating: 4.8,
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const products = [
     price: 74999,
     stock: 30,
     brand: "Samsung",
-    rating: 4.7
+    rating: 4.7,
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const products = [
     price: 124999,
     stock: 10,
     brand: "Apple",
-    rating: 4.9
+    rating: 4.9,
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const products = [
     price: 109999,
     stock: 8,
     brand: "Dell",
-    rating: 4.6
+    rating: 4.6,
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ const products = [
     price: 29999,
     stock: 15,
     brand: "Sony",
-    rating: 4.8
+    rating: 4.8,
   },
   {
     id: 6,
@@ -68,7 +68,7 @@ const products = [
     price: 2499,
     stock: 50,
     brand: "Boat",
-    rating: 4.3
+    rating: 4.3,
   },
   {
     id: 7,
@@ -77,7 +77,7 @@ const products = [
     price: 59999,
     stock: 12,
     brand: "Apple",
-    rating: 4.7
+    rating: 4.7,
   },
   {
     id: 8,
@@ -86,7 +86,7 @@ const products = [
     price: 64999,
     stock: 14,
     brand: "Samsung",
-    rating: 4.6
+    rating: 4.6,
   },
   {
     id: 9,
@@ -95,7 +95,7 @@ const products = [
     price: 8999,
     stock: 40,
     brand: "Nike",
-    rating: 4.5
+    rating: 4.5,
   },
   {
     id: 10,
@@ -104,7 +104,7 @@ const products = [
     price: 10999,
     stock: 35,
     brand: "Adidas",
-    rating: 4.7
+    rating: 4.7,
   },
   {
     id: 11,
@@ -113,7 +113,7 @@ const products = [
     price: 89999,
     stock: 6,
     brand: "LG",
-    rating: 4.8
+    rating: 4.8,
   },
   {
     id: 12,
@@ -122,7 +122,7 @@ const products = [
     price: 28999,
     stock: 20,
     brand: "Xiaomi",
-    rating: 4.4
+    rating: 4.4,
   },
   {
     id: 13,
@@ -131,7 +131,7 @@ const products = [
     price: 74999,
     stock: 7,
     brand: "Canon",
-    rating: 4.7
+    rating: 4.7,
   },
   {
     id: 14,
@@ -140,7 +140,7 @@ const products = [
     price: 54999,
     stock: 10,
     brand: "Sony",
-    rating: 4.9
+    rating: 4.9,
   },
   {
     id: 15,
@@ -149,25 +149,23 @@ const products = [
     price: 52999,
     stock: 9,
     brand: "Microsoft",
-    rating: 4.8
-  }
+    rating: 4.8,
+  },
 ];
+
 app.get("/s", (req, res) => {
-   return res.status(200).json({
-    message:"Products datas",
-    data:products
-   })
+  return res.status(200).json({
+    message: "Products datas",
+    data: products,
+  });
 });
 
 app.get("/health", (req, res) => {
-    res.status(200).json({
-        message: "Health is fine"
-    });
+  res.status(200).json({
+    message: "Health is fine",
+  });
 });
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
-
-
-
